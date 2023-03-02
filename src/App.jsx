@@ -1,5 +1,7 @@
-import style from './App.module.css'
+import { Post } from './components/Post'
 import { Sidebar } from './components/Sidebar'
+
+import style from './App.module.css'
 import './global.css'
 
 
@@ -10,8 +12,8 @@ function App() {
       <Sidebar/>
 
       <div>
-        <div> Post 1</div>
-        <div> Post 1</div>
+        <Post/>
+        <Post/>
       </div>
 
     </div>

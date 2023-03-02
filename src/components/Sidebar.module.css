@@ -57,7 +57,7 @@
     text-decoration:none;
     gap:0.5rem;
 
-    transition: background-color 0.2s ease;
+    transition: background-color 0.15s ease;
 }
 
 .edit_profile_btn:hover{
