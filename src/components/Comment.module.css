@@ -1,0 +1,66 @@
+.comment{
+    display:flex;
+    gap:1rem;
+}
+
+.commentContainer{
+    width:100%;
+}
+
+.commentContent{
+    background:var(--gray-600);
+    width:100%;
+    padding:1rem;
+
+    border-radius:5px;
+}
+
+.comment img{
+    width:3rem;
+    height:3rem;
+    border-radius:5px;
+}
+
+.commentHeader > header{
+    //background:yellow;
+    display:flex;
+    justify-content:space-between;
+    color:var(--gray-400);
+
+    margin-bottom:1.5rem;
+}
+
+.commentInfo{
+    display:flex;
+    flex-direction:column;
+}
+
+.commentInfo strong{
+    font-size:0.875rem;
+    line-height:1.6;
+    color:var(--gray-100);
+}
+
+.commentInfo span{
+    font-size:0.75rem;
+}
+
+.commentText p{
+    font-size:0.875rem;
+    color:var(--gray-300)
+}
+
+.commentLikes{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    margin: 1rem 0 1.5rem 0;
+
+    font-size:0.875rem;
+    color:var(--gray-400);
+}
+
+.commentLikes:hover{
+    color:var(--green-300);
+    cursor:pointer;
+}

@@ -1,3 +1,4 @@
+import { Comment } from './Comment'
 import style from './Post.module.css'
 
 export function Post(){
@@ -36,6 +37,11 @@ export function Post(){
                     <a href="">Publicar</a>
                 </div>
             </footer>
+
+            <Comment/>
+            <Comment/>
+            <Comment/>
+
 
         </article>
     )
