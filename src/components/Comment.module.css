@@ -14,14 +14,24 @@
 
     border-radius:5px;
 }
+.commentHeader > header button{
+    background:transparent;
+    border:none;
+    color:var(--gray-400);
+}
+
+.commentHeader > header button:hover{
+    color:red;
+}
 
 .commentHeader > header{
     display:flex;
     justify-content:space-between;
-    color:var(--gray-400);
 
     margin-bottom:1.5rem;
 }
+
+
 
 .commentInfo{
     display:flex;

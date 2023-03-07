@@ -1,13 +1,26 @@
 import { ThumbsUp, Trash } from 'phosphor-react'
+import { useState } from 'react';
 import { Avatar } from './Avatar'
 import style from './Comment.module.css'
 
-export function Comment(){
+export function Comment({content, onDeleteComment}){
+
+    const [likeCount, setLikeCount] = useState(0);
+
+    function handleDeleteComment(){
+        onDeleteComment(content);
+    }
+
+    function handleAddLikeComment(){
+        const NumberofLikes = likeCount + 1
+        setLikeCount(NumberofLikes);
+    }
+
     return(
         <div className={style.comment}>
             <Avatar
                 hasBorder={false}
-                src="https://github.com/DeyvidDiniz.png"
+                src="https://pps.whatsapp.net/v/t61.24694-24/328738145_1070209000572743_5106852784226137364_n.jpg?ccb=11-4&oh=01_AdTawtOfNtVbxf5gvn-R7c2_SZRcT5QoCB65GcTIAjFxLQ&oe=641458E2"
             />
             
             <div className={style.commentContainer}>
@@ -15,22 +28,28 @@ export function Comment(){
                     <div className={style.commentHeader}>
                         <header>
                             <div className={style.commentInfo}>
-                                <strong>Devon Lane</strong>
+                                <strong>Camilly</strong>
                                 <span>Cerca de 2h atrás</span>
                             </div>
-                            <Trash size={20}/>
+                            <button onClick={handleDeleteComment} title="Deletar comentário">
+                                <Trash size={20}/>
+                            </button>
+                            
                         </header>
                     </div>
 
                     <div className={style.commentText}>
-                        <p>Muito bom Devon, parabéns!! 👏👏</p>
+                        <p>{content}</p>
                     </div>
                 </div>
 
-                <div className={style.commentLikes}>
+                <div 
+                    className={style.commentLikes}
+                    onClick={handleAddLikeComment}
+                >
                     <ThumbsUp size={20}/>
                     Aplaudir
-                    <span>03</span>
+                    <span>{likeCount}</span>
                 </div>
             </div>
         </div>

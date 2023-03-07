@@ -114,8 +114,14 @@
 }
 
 
-.btnPublicar button:hover{
+.btnPublicar button:not(:disabled):hover{
     background:var(--green-300);
+    cursor:pointer;
+}
+
+.btnPublicar button:disabled{
+    opacity:0.7;
+    cursor:not-allowed;
 }
 
 .btnPublicar{
