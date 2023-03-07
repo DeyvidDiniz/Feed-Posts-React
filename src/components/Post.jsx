@@ -1,50 +1,75 @@
+import {format, formatDistanceToNow} from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+import { useState } from 'react'
+
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import style from './Post.module.css'
 
-export function Post(){
+
+
+
+
+export function Post({author, publishedAt, content}){
+
+    const [comments, setComments] = useState([
+        1,
+        2,
+    ])
+    
+
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+        locale: ptBR,
+    } )
+
+    const publisedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true,
+    })
+
+    function handleCreateNewComment(){
+        event.preventDefault();
+        setComments([...comments, comments.length + 1 ])
+    }
+
     return(
         <article className={style.post}>
             <header>
                 <div className={style.profile}>
                     <Avatar 
-                        src='https://github.com/DeyvidDiniz.png'
+                        src={author.avatarUrl}
                     />
 
                     <div className={style.profileInfo}>
-                        <strong>Deyvid Diniz</strong>
-                        <span>Dev Front-End</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
-                <time>Publicado há 1h</time>
+                <time>{publisedDateRelativeToNow}</time>
             </header>
 
             <div className={style.content}>
-
-                <p>Fala galeraa 👋</p>
-
-                <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-
-                <p><a href="#"> jane.design/doctorcare</a></p>
-
-                <p>
-                    <a href="">#novoprojeto </a>
-                    <a href="">#nlw </a>
-                    <a href="">#rocketseat </a>
-                </p>
+                <p>{content}</p>
             </div>
 
+            
             <footer>
-                <strong>Deixe seu feedback</strong>
-                <textarea placeholder='Deixe seu comentário'/>
-                <div className={style.btnPublicar}>
-                    <a href="">Publicar</a>
-                </div>
+                <form onSubmit={handleCreateNewComment}>
+                    <strong>Deixe seu feedback</strong>
+                    
+                    <textarea placeholder='Deixe seu comentário'/>
+
+                    <div className={style.btnPublicar}>
+                        <button type="submit">Publicar</button>
+                    </div>
+                </form>
             </footer>
 
-            <Comment/>
-            <Comment/>
-            <Comment/>
+            
+
+            {comments.map( comment =>{
+                return <Comment/>
+            })}
 
 
         </article>

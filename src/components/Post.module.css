@@ -65,6 +65,10 @@
     color:var(--green-300);
 }
 
+.post form{
+    display:flex;
+    flex-direction:column;
+}
 
 .post > footer{
     display:flex;
@@ -92,7 +96,7 @@
     color:var(--gray-300);
 }
 
-.btnPublicar a{
+.btnPublicar button{
     display:flex;
     justify-content:center;
     align-items:center;
@@ -103,13 +107,14 @@
     text-decoration:none;
     padding:1rem 1.5rem;
     border-radius:5px;
+    border:none;
 
     transition: background-color 0.15s ease;
 
 }
 
 
-.btnPublicar a:hover{
+.btnPublicar button:hover{
     background:var(--green-300);
 }
 
